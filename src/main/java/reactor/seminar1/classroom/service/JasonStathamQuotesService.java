@@ -14,6 +14,6 @@ public class JasonStathamQuotesService {
     );
 
     public String getFamousQuote() {
-        return QUOTES.stream().skip(RandomUtils.nextInt(-1, 3)).findFirst().orElse(":(");
+        return QUOTES.stream().skip(RandomUtils.nextInt(0, 3)).findFirst().orElse(":(");
     }
 }
