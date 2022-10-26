@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.splendidpdf'
+version '0.0.1-SNAPSHOT'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = 17
+    targetCompatibility = 17
+    options.annotationProcessorPath = configurations.annotationProcessor
+}
+
+ext {
+    set('lombokVersion', "1.18.24")
+    set("javafakerVersion", "1.0.2")
+    set("apacheCommonsVersion", "3.12.0")
+}
+
+dependencies {
+    implementation platform('io.projectreactor:reactor-bom:2020.0.24')
+    implementation("io.projectreactor:reactor-core")
+    implementation("com.github.javafaker:javafaker:${javafakerVersion}")
+    implementation("org.apache.commons:commons-lang3:${apacheCommonsVersion}")
+
+    annotationProcessor ("org.projectlombok:lombok:${lombokVersion}")
+
+    compileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testCompileOnly("org.projectlombok:lombok:${lombokVersion}")
+    testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("io.projectreactor:reactor-test")
+    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.9.0")
+}
+
+test {
+    useJUnitPlatform()
+}
