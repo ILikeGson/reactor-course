@@ -19,6 +19,10 @@ public class Generator {
         return (FAKER.file().fileName() + FAKER.file().extension()).getBytes();
     }
 
+    public static String generateEmail() {
+        return FAKER.name().username() + "@gmail.ru";
+    }
+
     public static User generateUser() {
         return new User(
                 "ORG".concat(String.valueOf(RandomUtils.nextLong(99, 999))),
