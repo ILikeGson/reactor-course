@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class OfficialJokeClient {
 
     public Stream<String> getJokes() {
-        return IntStream.range(0, RandomUtils.nextInt(30, 100))
+        return IntStream.range(0, RandomUtils.nextInt(50, 100))
                 .mapToObj(i -> sendHttpRequest());
     }
 
