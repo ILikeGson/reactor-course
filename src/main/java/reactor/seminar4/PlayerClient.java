@@ -2,6 +2,7 @@ package reactor.seminar4;
 
 import reactor.seminar4.model.Names;
 import reactor.seminar4.service.PlayerService;
+import reactor.utils.Subscribers;
 
 public class PlayerClient {
 
@@ -38,10 +39,10 @@ public class PlayerClient {
 
         // 7. Найти игроков, у которых в друзьях есть Daniel Naroditsky
         playerService.findPlayersHavingInFriendsDanielNaroditsky()
-                .subscribe();
+                .subscribe(Subscribers.defaultSubscriber());
 
         // 8. Вывести инфу об игроке и 10ти его последних играх
         playerService.findPlayerWith10LastGames(Names.HIKARU.getName())
-                .subscribe();
+                .subscribe(Subscribers.defaultSubscriber());
     }
 }
