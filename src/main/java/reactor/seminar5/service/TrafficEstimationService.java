@@ -1,4 +1,4 @@
-package reactor.seminar5.repository;
+package reactor.seminar5.service;
 
 import org.apache.commons.lang3.RandomUtils;
 import reactor.seminar5.model.TrafficJamIndex;

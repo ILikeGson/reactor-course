@@ -18,7 +18,7 @@ public class FareEstimationService {
         return INSTANCE;
     }
 
-    public double estimateFareForGivenCoords(double travelTimeEstimationInSeconds, TariffType tariffType) {
+    public double estimateFare(double travelTimeEstimationInSeconds, TariffType tariffType) {
         return travelTimeEstimationInSeconds / 60 * tariffType.getRatePerMinute() + FARE_FOR_USING_SERVICE;
     }
 }
